@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="web_store_db" match-name="articles"/>
+  <table-filter match-catalog="web_store_db" match-name="billing"/>
+  <table-filter match-catalog="web_store_db" match-name="city"/>
+  <table-filter match-catalog="web_store_db" match-name="clients"/>
+  <table-filter match-catalog="web_store_db" match-name="country"/>
+  <table-filter match-catalog="web_store_db" match-name="credit_cards"/>
+  <table-filter match-catalog="web_store_db" match-name="delivery_adress"/>
+  <table-filter match-catalog="web_store_db" match-name="delivery_company"/>
+  <table-filter match-catalog="web_store_db" match-name="delivery_packages"/>
+  <table-filter match-catalog="web_store_db" match-name="information_cc"/>
+  <table-filter match-catalog="web_store_db" match-name="purchase_orders"/>
+  <table-filter match-catalog="web_store_db" match-name="shopping_cart"/>
+  <table-filter match-catalog="web_store_db" match-name="states"/>
+</hibernate-reverse-engineering>

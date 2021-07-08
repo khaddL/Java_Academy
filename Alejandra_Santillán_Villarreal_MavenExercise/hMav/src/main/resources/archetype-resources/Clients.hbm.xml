@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jun 11, 2021, 1:48:56 AM by Hibernate Tools 5.4.30.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="web_store_db" dynamic-insert="false" dynamic-update="false" mutable="true" name="run.Clients" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="clients">
+        <id name="idClient" type="java.lang.Integer">
+            <column name="id_client"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="lastName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="last_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="username" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="username" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="password" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="password" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="email" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="email" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="creditCardses" optimistic-lock="true" sort="unsorted" table="credit_cards">
+            <key on-delete="noaction">
+                <column name="id_client" not-null="true"/>
+            </key>
+            <one-to-many class="run.CreditCards" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="deliveryAdresses" optimistic-lock="true" sort="unsorted" table="delivery_adress">
+            <key on-delete="noaction">
+                <column name="id_client" not-null="true"/>
+            </key>
+            <one-to-many class="run.DeliveryAdress" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

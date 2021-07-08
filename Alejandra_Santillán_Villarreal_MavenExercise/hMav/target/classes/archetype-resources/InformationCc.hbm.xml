@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jun 11, 2021, 1:48:56 AM by Hibernate Tools 5.4.30.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="web_store_db" dynamic-insert="false" dynamic-update="false" mutable="true" name="run.InformationCc" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="information_cc">
+        <id name="idCc" type="java.lang.Integer">
+            <column name="id_cc"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="creditCardNumber" optimistic-lock="true" type="int" unique="false">
+            <column name="credit_card_number" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="type" optimistic-lock="true" type="string" unique="false">
+            <column length="11" name="type" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="cardholder" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="cardholder" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="creditCardses" optimistic-lock="true" sort="unsorted" table="credit_cards">
+            <key on-delete="noaction">
+                <column name="id_cc" not-null="true"/>
+            </key>
+            <one-to-many class="run.CreditCards" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

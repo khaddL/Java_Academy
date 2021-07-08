@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jun 11, 2021, 1:48:56 AM by Hibernate Tools 5.4.30.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="web_store_db" dynamic-insert="false" dynamic-update="false" mutable="true" name="run.DeliveryPackages" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="delivery_packages">
+        <id name="idPackage" type="java.lang.Integer">
+            <column name="id_package"/>
+            <generator class="foreign">
+                <param name="property">purchaseOrders</param>
+            </generator>
+        </id>
+        <many-to-one class="run.DeliveryCompany" embed-xml="true" fetch="select" insert="true" name="deliveryCompany" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_delivery_company" not-null="true"/>
+        </many-to-one>
+        <one-to-one class="run.PurchaseOrders" constrained="true" embed-xml="true" name="purchaseOrders"/>
+        <property generated="never" lazy="false" name="packageNumber" optimistic-lock="true" type="int" unique="false">
+            <column name="package_number" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="deliveryDate" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="delivery_date" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

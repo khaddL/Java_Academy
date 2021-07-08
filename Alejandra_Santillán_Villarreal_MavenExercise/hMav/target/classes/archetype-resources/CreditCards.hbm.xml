@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jun 11, 2021, 1:48:56 AM by Hibernate Tools 5.4.30.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="web_store_db" dynamic-insert="false" dynamic-update="false" mutable="true" name="run.CreditCards" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="credit_cards">
+        <id name="idCreditCard" type="java.lang.Integer">
+            <column name="id_credit_card"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="run.Clients" embed-xml="true" fetch="select" insert="true" name="clients" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_client" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="run.InformationCc" embed-xml="true" fetch="select" insert="true" name="informationCc" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_cc" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

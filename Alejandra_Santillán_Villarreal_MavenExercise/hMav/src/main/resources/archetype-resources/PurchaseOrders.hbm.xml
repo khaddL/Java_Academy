@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jun 11, 2021, 1:48:56 AM by Hibernate Tools 5.4.30.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="web_store_db" dynamic-insert="false" dynamic-update="false" mutable="true" name="run.PurchaseOrders" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="purchase_orders">
+        <id name="idPurchaseOrder" type="java.lang.Integer">
+            <column name="id_purchase_order"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="run.DeliveryAdress" embed-xml="true" fetch="select" insert="true" name="deliveryAdress" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_adress" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="purchaseDate" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="purchase_date" not-null="true"/>
+        </property>
+        <one-to-one class="run.DeliveryPackages" constrained="false" embed-xml="true" name="deliveryPackages"/>
+        <one-to-one class="run.Billing" constrained="false" embed-xml="true" name="billing"/>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="shoppingCarts" optimistic-lock="true" sort="unsorted" table="shopping_cart">
+            <key on-delete="noaction">
+                <column name="id_purchase_order" not-null="true"/>
+            </key>
+            <one-to-many class="run.ShoppingCart" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

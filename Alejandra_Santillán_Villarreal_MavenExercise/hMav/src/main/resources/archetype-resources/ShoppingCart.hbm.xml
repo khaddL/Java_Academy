@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jun 11, 2021, 1:48:56 AM by Hibernate Tools 5.4.30.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="web_store_db" dynamic-insert="false" dynamic-update="false" mutable="true" name="run.ShoppingCart" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="shopping_cart">
+        <id name="idShoppingCart" type="java.lang.Integer">
+            <column name="id_shopping_cart"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="run.Articles" embed-xml="true" fetch="select" insert="true" name="articles" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_article" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="run.PurchaseOrders" embed-xml="true" fetch="select" insert="true" name="purchaseOrders" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_purchase_order" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
